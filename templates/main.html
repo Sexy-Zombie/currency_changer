@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Main page</title>
+</head>
+<body>
+    <h2>Exchange rate</h2>
+
+    <form action="{{ url_for('change') }}" method="POST">
+        <p>From:</p>
+        <select name="from-what" id="from-what">
+            {% for i in currencies %}
+                <option value="{{i}}">{{i}}</option>
+            {% endfor %}
+
+            <!--<option value="HUF">HUF</option>
+            <option value="USD">USD</option>
+            <option value="EUR">EUR</option>
+            <option value="RUB">RUB</option>
+            <option value="GBP">GBP</option>
+            <option value="CNY">CNY</option>
+            <option value="JPY">JPY</option>-->
+        </select>
+        <p>To:</p>
+        <select name="to-what" id="to-what">
+            {% for i in currencies %}
+                <option value="{{i}}">{{i}}</option>
+            {% endfor %}
+
+            <!--<option value="EUR">EUR</option>
+            <option value="HUF">HUF</option>
+            <option value="USD">USD</option>
+            <option value="RUB">RUB</option>
+            <option value="GBP">GBP</option>
+            <option value="CNY">CNY</option>
+            <option value="JPY">JPY</option>-->
+
+        </select>
+        <p></p>
+        <label for="amount">How much?</label>
+        <input type="number" id="amount" name="amount">
+        <input type="submit" value="Change">
+    </form>
+</body>
+</html>
